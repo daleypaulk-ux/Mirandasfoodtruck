@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miranda's Shaved Ice | Roeland Park, KS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #e84f7f;
+    --blue: #2ca6df;
+    --yellow: #f9c74f;
+    --white: #fffefb;
+    --dark: #13242f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f8fbff;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  .topbar {
+    background: linear-gradient(90deg, var(--pink), var(--blue), var(--yellow));
+    height: 12px;
+  }
+
+  .container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+  }
+
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: var(--dark);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .btn-link {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(19,36,47,0.2);
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: white;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 34px;
+    align-items: center;
+    padding: 24px 0 56px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .hero p {
+    font-size: 1.04rem;
+    color: #34505f;
+    max-width: 620px;
+    margin-bottom: 16px;
+  }
+
+  .hero-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .hero-pill {
+    background: white;
+    border: 1px solid rgba(19,36,47,0.15);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  .hero-logo {
+    width: 100%;
+    border-radius: 16px;
+    border: 4px solid white;
+    box-shadow: 0 20px 44px rgba(0,0,0,0.12);
+  }
+
+  section {
+    padding: 26px 0 56px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.7rem, 3vw, 2.5rem);
+    margin-bottom: 18px;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    background: white;
+    border: 1px solid rgba(19,36,47,0.1);
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.06);
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+  }
+
+  .price {
+    color: #ce2c6a;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid white;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+  }
+
+  .location-box {
+    background: linear-gradient(135deg, #ffffff, #f2f9ff);
+    border: 1px solid rgba(19,36,47,0.12);
+    border-radius: 14px;
+    padding: 22px;
+  }
+
+  .location-box p {
+    margin-bottom: 10px;
+  }
+
+  .location-box a {
+    color: #136eb4;
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  footer {
+    text-align: center;
+    padding: 26px 20px 44px;
+    color: #4f6676;
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: 860px) {
+    nav { flex-direction: column; gap: 12px; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-logo { max-height: 480px; object-fit: cover; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<div class="container">
+  <nav>
+    <a class="brand" href="shaved-ice.html">Miranda's Shaved Ice</a>
+    <div class="nav-links">
+      <a class="btn-link" href="index.html">Mexican Food Truck</a>
+      <a class="btn-link" href="#menu">Menu</a>
+      <a class="btn-link" href="#gallery">Photos</a>
+      <a class="btn-link" href="#visit">Visit Us</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Miranda's Shaved Ice</h1>
+      <p>A second Miranda's food truck experience built for sweet, refreshing flavor. Perfect for hot days, family outings, school nights, and community events in Roeland Park.</p>
+      <div class="hero-list">
+        <span class="hero-pill">Family-Friendly</span>
+        <span class="hero-pill">Fresh Fruit Style Flavors</span>
+        <span class="hero-pill">Great for Events & Catering</span>
+      </div>
+    </div>
+    <img src="images/shaved-ice/logo.png" alt="Miranda's Shaved Ice logo" class="hero-logo">
+  </section>
+
+  <section id="menu">
+    <h2 class="section-title">Shaved Ice Menu</h2>
+    <div class="menu-grid">
+      <article class="card">
+        <h3>Aguas Frescas</h3>
+        <p class="price">$9.00 · 32 oz</p>
+        <p>Refreshing fruit-based agua frescas made for sunny Kansas days and perfect pairings with your meal.</p>
+      </article>
+      <article class="card">
+        <h3>Shaved Ice</h3>
+        <p class="price">$10.00 - $12.00 · 20 oz</p>
+        <p>Big, colorful shaved ice with house-style toppings and flavor combinations. Sweet, cool, and photo-ready.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2 class="section-title">Photo Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/shaved-ice/img-7003.png" alt="Shaved ice with chili topping">
+      <img src="images/shaved-ice/img-6999.png" alt="Strawberry and cream shaved ice">
+      <img src="images/shaved-ice/img-7138.png" alt="Mango and strawberry shaved ice cups">
+      <img src="images/shaved-ice/img-7001.png" alt="Shaved ice with tamarind style drizzle">
+      <img src="images/shaved-ice/img-7139.png" alt="Two shaved ice cups in bright flavors">
+      <img src="images/shaved-ice/img-6995.png" alt="Shaved ice with coconut topping">
+      <img src="images/shaved-ice/img-7008.png" alt="Mixed fruit shaved ice with chili">
+      <img src="images/shaved-ice/img-7911.png" alt="Chocolate style shaved ice drink">
+      <img src="images/shaved-ice/img-6980.png" alt="Three shaved ice cups lineup">
+      <img src="images/shaved-ice/img-6997.png" alt="Strawberry and cream shaved ice up close">
+      <img src="images/shaved-ice/img-6996.png" alt="Strawberry and cream shaved ice variation">
+      <img src="images/shaved-ice/img-6998.png" alt="Red and cream shaved ice cup">
+      <img src="images/shaved-ice/img-6981.png" alt="Assorted shaved ice cup lineup">
+      <img src="images/shaved-ice/img-6982.png" alt="Fresh fruit cups in cooler at food truck">
+    </div>
+  </section>
+
+  <section id="visit">
+    <h2 class="section-title">Find Miranda's Shaved Ice</h2>
+    <div class="location-box">
+      <p><strong>Address:</strong> 4950 Roe Blvd, Roeland Park, KS 66205</p>
+      <p><strong>Two Trucks, One Family:</strong> Visit our Mexican food truck from the main page and make it a full Miranda's experience.</p>
+      <p><a href="https://maps.google.com/?q=4950+Roe+Blvd+Roeland+Park+KS+66205" target="_blank" rel="noopener noreferrer">Open in Google Maps</a></p>
+    </div>
+  </section>
+</div>
+
+<footer>
+  Miranda's Shaved Ice · Family-Owned & Family-Managed · Roeland Park, Kansas
+</footer>
+</body>
+</html>
