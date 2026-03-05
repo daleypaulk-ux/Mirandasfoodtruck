@@ -100,6 +100,17 @@
     animation: fadeUp 0.8s ease both;
   }
 
+  .hero-logo {
+    width: min(420px, 82vw);
+    border-radius: 10px;
+    border: 3px solid rgba(255,255,255,0.15);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
   .hero h1 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(3rem, 10vw, 8rem);
@@ -278,6 +289,14 @@
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 
+  .about-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.25);
+    box-shadow: 0 16px 44px rgba(0,0,0,0.2);
+  }
+
   .about-accent {
     position: absolute;
     bottom: -20px;
@@ -305,7 +324,6 @@
     border-top: 1px solid rgba(0,0,0,0.1);
   }
 
-  .stat-item {}
   .stat-num {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -407,6 +425,13 @@
     line-height: 1.6;
   }
 
+  .menu-item-photo {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
   .menu-tag {
     display: inline-block;
     background: var(--red);
@@ -444,7 +469,7 @@
   .drinks-section { background: var(--warm); }
   .drinks-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
     margin-top: 48px;
   }
@@ -456,10 +481,22 @@
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .drink-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
-  .drink-emoji { font-size: 2.5rem; margin-bottom: 16px; }
+  .drink-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
   .drink-name {
     font-family: 'Playfair Display', serif;
     font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .drink-price {
+    color: var(--red);
     font-weight: 700;
     margin-bottom: 8px;
   }
@@ -628,13 +665,23 @@
 
   .nav-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 900;
     color: var(--cream);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
 
   .nav-logo span { color: var(--gold); font-style: italic; }
+  .nav-logo img {
+    width: 46px;
+    height: 46px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
 
   .nav-links {
     display: flex;
@@ -668,7 +715,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">Miranda's <span>Mexican</span></a>
+  <a href="#" class="nav-logo"><img src="images/logo.png" alt="Miranda's Mexican Food Truck logo">Miranda's <span>Mexican</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#menu">Menu</a></li>
@@ -691,8 +738,9 @@
   </div>
 
   <div class="hero-badge">Kansas City, Missouri</div>
+  <img src="images/logo.png" alt="Miranda's Mexican Food Truck logo" class="hero-logo">
   <h1>Miranda's<span>Mexican Food Truck</span></h1>
-  <p class="hero-tagline">Authentic flavors. Fresh ingredients. Made with love every day.</p>
+  <p class="hero-tagline">Family-owned and family-managed, serving bold Mexican flavor with year-round warm outdoor seating, catering, and event service.</p>
   <div class="hero-stars">★★★★★</div>
   <p class="hero-rating">4.9 Stars · 350+ Reviews · Kansas City's Favorite</p>
   <div class="hero-cta">
@@ -711,10 +759,10 @@
     <div class="about-grid">
       <div class="about-text">
         <p class="section-label">Our Story</p>
-        <h2 class="section-title">A Family Tradition, Served Fresh Daily</h2>
-        <p>Miranda's Mexican Food Truck isn't just a place to eat — it's a celebration of Mexican culinary heritage, brought to the streets of Kansas City by Ana and Luis with passion, care, and family recipes passed down through generations.</p>
-        <p>Parked permanently at 3029 Southwest Blvd, we've built a community around our truck. Every taco, every huarache, every quesadilla is made with fresh ingredients and a whole lot of love. Come hungry. Leave happy.</p>
-        <p>We also offer <strong>birria on select Fridays</strong> — follow us for announcements. Ask about off-menu veggie tacos too!</p>
+        <h2 class="section-title">Family-Owned, Family-Managed, Always Fresh</h2>
+        <p>Miranda's Mexican Food Truck is a family-owned, family-managed kitchen on wheels where authentic Mexican flavor meets genuine hospitality in the heart of Kansas City.</p>
+        <p>Parked at 3029 Southwest Blvd, we deliver a warm, welcoming experience year-round with cozy outdoor seating and fresh food made to order every day.</p>
+        <p>Hosting a celebration, office lunch, or community event? We offer catering, event service, and easy delivery on DoorDash and Uber Eats.</p>
 
         <div class="stats-row">
           <div class="stat-item">
@@ -733,7 +781,7 @@
       </div>
 
       <div class="about-visual">
-        <div class="about-img-placeholder">🌮</div>
+        <img src="images/logo.png" alt="Miranda's Mexican Food Truck logo" class="about-img">
         <div class="about-accent">Fresh<br>Every<br>Day ✦</div>
       </div>
     </div>
@@ -747,7 +795,7 @@
   <div class="container">
     <p class="section-label">Our Menu</p>
     <h2 class="section-title">Made Fresh, Made to Order</h2>
-    <p class="menu-intro">Every dish crafted with authentic recipes and the finest ingredients.</p>
+    <p class="menu-intro">From family recipes to street-food favorites, every dish is crafted fresh to order with authentic flavor and quality ingredients.</p>
 
     <div class="menu-categories">
       <button class="cat-btn active" onclick="filterMenu('all', this)">All</button>
@@ -755,111 +803,195 @@
       <button class="cat-btn" onclick="filterMenu('mains', this)">Mains</button>
       <button class="cat-btn" onclick="filterMenu('snacks', this)">Snacks</button>
       <button class="cat-btn" onclick="filterMenu('extras', this)">Extras</button>
+      <button class="cat-btn" onclick="filterMenu('desserts', this)">Desserts</button>
     </div>
 
     <div class="menu-grid">
       <!-- TACOS -->
       <div class="menu-item visible" data-cat="tacos">
         <div class="menu-item-top">
-          <span class="menu-item-name">Street Tacos</span>
-          <span class="menu-item-price">$2.99 ea</span>
+          <span class="menu-item-name">Tacos</span>
+          <span class="menu-item-price">$3.25 each</span>
         </div>
-        <p class="menu-item-desc">Asada, Pastor, Pollo, Chorizo, Carnitas, Lengua, Canasta — served on warm fresh tortillas with onion & cilantro.</p>
+        <p class="menu-item-desc">Asada (grill steak), Pastor (marinated pork), Cabeza (beef head), Pollo (marinated chicken), Chorizo (Mexican sausage).</p>
         <span class="menu-tag">Fan Favorite</span>
       </div>
 
       <div class="menu-item visible" data-cat="tacos">
         <div class="menu-item-top">
-          <span class="menu-item-name">Birria Tacos</span>
-          <span class="menu-item-price">Market Price</span>
+          <span class="menu-item-name">Tacos (Weekend Only)</span>
+          <span class="menu-item-price">$3.25 each</span>
         </div>
-        <p class="menu-item-desc">Rich, slow-braised birria served on dipped, griddled tortillas. Available select Fridays only — follow us for updates!</p>
-        <span class="menu-tag">Friday Special</span>
+        <p class="menu-item-desc">Lengua (beef tongue) and Carnitas (pulled pork).</p>
+        <span class="menu-tag">Weekend Only</span>
+      </div>
+
+      <div class="menu-item visible" data-cat="tacos">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Tacos de Canasta</span>
+          <span class="menu-item-price">$3.25</span>
+        </div>
+        <p class="menu-item-desc">Shredded pork shoulder in special red sauce topped with cabbage, radish and cilantro (Estilo Veracruz).</p>
+        <img src="images/tacos-de-canasta.png" alt="Tacos de canasta" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="tacos">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Birria Tacos</span>
+          <span class="menu-item-price">Ask for Price</span>
+        </div>
+        <p class="menu-item-desc">Crispy birria tacos served with consommé, rice and salsa.</p>
+        <img src="images/birria-tacos.png" alt="Birria tacos" class="menu-item-photo">
       </div>
 
       <!-- MAINS -->
       <div class="menu-item visible" data-cat="mains">
         <div class="menu-item-top">
-          <span class="menu-item-name">Burrito</span>
-          <span class="menu-item-price">$9.00</span>
+          <span class="menu-item-name">Huaraches</span>
+          <span class="menu-item-price">$13.00</span>
         </div>
-        <p class="menu-item-desc">Asada, Pastor, Pollo, Chorizo, or Cabeza — your choice of meat wrapped in a large warm flour tortilla.</p>
-      </div>
-
-      <div class="menu-item visible" data-cat="mains">
-        <div class="menu-item-top">
-          <span class="menu-item-name">Huarache</span>
-          <span class="menu-item-price">$9.99</span>
-        </div>
-        <p class="menu-item-desc">Thick masa base topped with refried beans, your choice of meat, fresh lettuce, tomato, and creamy avocado.</p>
-        <span class="menu-tag">Must Try</span>
-      </div>
-
-      <div class="menu-item visible" data-cat="mains">
-        <div class="menu-item-top">
-          <span class="menu-item-name">Mexican Torta</span>
-          <span class="menu-item-price">$9.99</span>
-        </div>
-        <p class="menu-item-desc">Toasted bolillo roll loaded with your choice of meat, beans, avocado, jalapeños, and all the fixings.</p>
+        <p class="menu-item-desc">Refried beans, meat of your choice, lettuce, tomatoes, onions, sour cream, cheese and avocado.</p>
+        <img src="images/huarache.png" alt="Huarache" class="menu-item-photo">
       </div>
 
       <div class="menu-item visible" data-cat="mains">
         <div class="menu-item-top">
           <span class="menu-item-name">Quesadilla</span>
-          <span class="menu-item-price">$9.00</span>
+          <span class="menu-item-price">$12.00</span>
         </div>
-        <p class="menu-item-desc">Golden griddled tortilla filled with melted cheese and your choice of meat. A comfort classic.</p>
+        <p class="menu-item-desc">Cheese, meat of your choice, lettuce and grill onions.</p>
+        <img src="images/quesadilla.png" alt="Quesadilla" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="mains">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Birria Quesadilla</span>
+          <span class="menu-item-price">Ask for Price</span>
+        </div>
+        <p class="menu-item-desc">Large birria quesadilla served with consommé, rice and salsa.</p>
+        <img src="images/birria-quesadilla.png" alt="Birria quesadilla" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="mains">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Tortas (Mexican Sandwich)</span>
+          <span class="menu-item-price">$13.00</span>
+        </div>
+        <p class="menu-item-desc">Milanesa, ham or meat of your choice with refried beans, cheese, grill onions, lettuce, tomatoes, mayonnaise and avocado.</p>
+        <img src="images/torta.png" alt="Torta sandwich" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="mains">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Burritos</span>
+          <span class="menu-item-price">$12.00</span>
+        </div>
+        <p class="menu-item-desc">Refried beans, meat of your choice, cheese, grill onions, lettuce, sour cream and avocado.</p>
+        <img src="images/burrito.png" alt="Burrito" class="menu-item-photo">
       </div>
 
       <!-- SNACKS -->
       <div class="menu-item visible" data-cat="snacks">
         <div class="menu-item-top">
           <span class="menu-item-name">Chicken Flautas</span>
-          <span class="menu-item-price">$7.50</span>
+          <span class="menu-item-price">$8.00 / $12.00</span>
         </div>
-        <p class="menu-item-desc">Crispy rolled tortillas stuffed with seasoned chicken, fried to golden perfection. Served with dipping sauce.</p>
+        <p class="menu-item-desc">3 or 5 pieces with lettuce, tomatoes, sour cream and cheese.</p>
       </div>
 
       <div class="menu-item visible" data-cat="snacks">
         <div class="menu-item-top">
           <span class="menu-item-name">Buffalo Chicken Wings</span>
-          <span class="menu-item-price">$9.00</span>
+          <span class="menu-item-price">$9.00 / $17.00</span>
         </div>
-        <p class="menu-item-desc">Six wings with a kick — a surprising and beloved fan favorite. You won't expect it. You won't regret it.</p>
-        <span class="menu-tag">Hidden Gem</span>
+        <p class="menu-item-desc">6 or 12 pieces.</p>
+        <img src="images/buffalo-wings.png" alt="Buffalo chicken wings" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="snacks">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Chicken Tender</span>
+          <span class="menu-item-price">$8.00 / $16.00</span>
+        </div>
+        <p class="menu-item-desc">5 or 10 pieces.</p>
       </div>
 
       <!-- EXTRAS -->
       <div class="menu-item visible" data-cat="extras">
         <div class="menu-item-top">
           <span class="menu-item-name">French Fries</span>
-          <span class="menu-item-price">Ask for Price</span>
+          <span class="menu-item-price">$4.50</span>
         </div>
-        <p class="menu-item-desc">Customers can't stop raving about these. Crispy, seasoned fries that keep people coming back for more.</p>
-        <span class="menu-tag">Surprise Hit</span>
+        <p class="menu-item-desc">Crispy and golden, served hot and fresh.</p>
       </div>
 
-      <div class="menu-item visible" data-cat="extras">
+      <!-- DESSERTS -->
+      <div class="menu-item visible" data-cat="desserts">
         <div class="menu-item-top">
-          <span class="menu-item-name">Tres Leches Cake</span>
-          <span class="menu-item-price">Ask for Price</span>
+          <span class="menu-item-name">Tres Leches</span>
+          <span class="menu-item-price">$6.00</span>
         </div>
-        <p class="menu-item-desc">Light, soaked-through sponge cake drenched in three kinds of milk. The perfect sweet finish.</p>
-        <span class="menu-tag">Dessert</span>
+        <p class="menu-item-desc">Classic tres leches cake slice.</p>
+        <img src="images/tres-leches.png" alt="Tres leches cake" class="menu-item-photo">
       </div>
 
-      <div class="menu-item visible" data-cat="extras">
+      <div class="menu-item visible" data-cat="desserts">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Chocolate Flan</span>
+          <span class="menu-item-price">$5.00</span>
+        </div>
+        <p class="menu-item-desc">Chocolate flan topped with cream and strawberry.</p>
+        <img src="images/chocolate-flan.png" alt="Chocolate flan" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="desserts">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Chocolate Mousse</span>
+          <span class="menu-item-price">$5.00</span>
+        </div>
+        <p class="menu-item-desc">Rich chocolate mousse dessert.</p>
+        <img src="images/chocolate-mousse.png" alt="Chocolate mousse" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="desserts">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Cheesecake</span>
+          <span class="menu-item-price">$5.00</span>
+        </div>
+        <p class="menu-item-desc">Creamy cheesecake slice with strawberry drizzle.</p>
+        <img src="images/cheesecake.png" alt="Cheesecake" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="desserts">
         <div class="menu-item-top">
           <span class="menu-item-name">Flan</span>
-          <span class="menu-item-price">Ask for Price</span>
+          <span class="menu-item-price">$5.00</span>
         </div>
-        <p class="menu-item-desc">Classic Mexican caramel custard, silky smooth with a rich caramel glaze. Housemade.</p>
-        <span class="menu-tag">Dessert</span>
+        <p class="menu-item-desc">Traditional flan with cinnamon and raisin topping.</p>
+        <img src="images/flan.png" alt="Flan" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="desserts">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Oreo Mousse</span>
+          <span class="menu-item-price">$5.00</span>
+        </div>
+        <p class="menu-item-desc">Cookies and cream style mousse with chocolate drizzle.</p>
+        <img src="images/oreo-mousse.png" alt="Oreo mousse" class="menu-item-photo">
+      </div>
+
+      <div class="menu-item visible" data-cat="desserts">
+        <div class="menu-item-top">
+          <span class="menu-item-name">Mango Mousse Pie</span>
+          <span class="menu-item-price">$5.00</span>
+        </div>
+        <p class="menu-item-desc">Creamy mango mousse pie slice topped with whipped cream.</p>
+        <img src="images/mango-mousse-pie.png" alt="Mango mousse pie" class="menu-item-photo">
       </div>
     </div>
 
     <div class="specials-banner">
-      Birria available select Fridays · Ask about off-menu veggie tacos · All major cards accepted
+      Weekend tacos include lengua and carnitas · Fresh ingredients daily · All major cards accepted
     </div>
   </div>
 </section>
@@ -873,19 +1005,16 @@
     <h2 class="section-title">Drink Like You're in Mexico</h2>
     <div class="drinks-grid">
       <div class="drink-card">
-        <div class="drink-emoji">🍹</div>
-        <div class="drink-name">Agua Fresca</div>
-        <p class="drink-desc">Refreshing house-made fruit waters. Cool, sweet, and authentic.</p>
+        <img src="images/canned-sodas.png" alt="Can sodas" class="drink-photo">
+        <div class="drink-name">Can Sodas</div>
+        <p class="drink-price">$2.25</p>
+        <p class="drink-desc">Coca-Cola, Sunkist, Diet Coke, Sprite, Squirt and more.</p>
       </div>
       <div class="drink-card">
-        <div class="drink-emoji">🌿</div>
-        <div class="drink-name">Jarritos</div>
-        <p class="drink-desc">All flavors of Mexico's favorite sparkling fruit soda. The perfect pairing for tacos.</p>
-      </div>
-      <div class="drink-card">
-        <div class="drink-emoji">🥤</div>
-        <div class="drink-name">Mexican Coke</div>
-        <p class="drink-desc">The real thing — made with cane sugar, served ice cold in a glass bottle.</p>
+        <img src="images/mexican-bottled-drinks.png" alt="Mexican bottled drinks" class="drink-photo">
+        <div class="drink-name">Mexican Bottled Drinks</div>
+        <p class="drink-price">$3.50</p>
+        <p class="drink-desc">Jarritos, Mexican Coke, Sangria Senorial and more imported favorites.</p>
       </div>
     </div>
   </div>
@@ -979,7 +1108,15 @@
           </div>
           <div class="contact-item">
             <div class="contact-icon">🚗</div>
-            <div>Delivery Available</div>
+            <div>Delivery Available on DoorDash & Uber Eats</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🎉</div>
+            <div>Catering & Events Available</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🔥</div>
+            <div>Warm Outdoor Seating Year-Round</div>
           </div>
         </div>
       </div>
@@ -998,7 +1135,7 @@
         </a>
 
         <div style="background:var(--dark);color:var(--cream);padding:32px;margin-top:24px;">
-          <p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;line-height:1.7;color:rgba(253,246,232,0.8);">"The truck is run by a lovely couple who prepare all the food fresh daily. As the movement of supporting local only grows larger, I highly recommend coming here and helping this small business grow."</p>
+          <p style="font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;line-height:1.7;color:rgba(253,246,232,0.8);">"Family-owned and family-managed with incredible food, warm service, and a year-round welcoming vibe. One visit and you'll be planning your next."</p>
           <p style="margin-top:12px;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">— Community Review</p>
         </div>
       </div>
