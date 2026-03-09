@@ -66,6 +66,14 @@
     padding: 10px 14px;
     border-radius: 999px;
     background: white;
+    cursor: pointer;
+  }
+
+  body.translate-reset { top: 0 !important; }
+  .skiptranslate iframe,
+  #goog-gt-tt,
+  .goog-te-banner-frame {
+    display: none !important;
   }
 
   .hero {
@@ -214,17 +222,18 @@
       <a class="btn-link" href="#menu">Menu</a>
       <a class="btn-link" href="#gallery">Photos</a>
       <a class="btn-link" href="#visit">Visit Us</a>
+      <button type="button" id="lang-toggle" class="btn-link">Español</button>
     </div>
   </nav>
 
   <section class="hero">
     <div>
       <h1>Miranda's Shaved Ice</h1>
-      <p>A second Miranda's food truck experience built for sweet, refreshing flavor. Perfect for hot days, family outings, school nights, and community events in Roeland Park.</p>
+      <p>A second Miranda's food truck experience built for sweet, refreshing flavor made with fresh fruit and homemade syrup. Perfect for hot days, family outings, school nights, and community events in Roeland Park.</p>
       <p class="award-note">Part of the Miranda's family brand, voted Best Restaurant in KC 2025. <a href="https://businessrate.com/awards/presentation/v2?cc=S4YP7X" target="_blank" rel="noopener noreferrer">See BusinessRate recognition</a>.</p>
       <div class="hero-list">
         <span class="hero-pill">Family-Friendly</span>
-        <span class="hero-pill">Fresh Fruit Style Flavors</span>
+        <span class="hero-pill">Fresh Fruit + Homemade Syrup</span>
         <span class="hero-pill">Great for Events & Catering</span>
       </div>
     </div>
@@ -242,7 +251,7 @@
       <article class="card">
         <h3>Shaved Ice</h3>
         <p class="price">$10.00 - $12.00 · 20 oz</p>
-        <p>Big, colorful shaved ice with house-style toppings and flavor combinations. Sweet, cool, and photo-ready.</p>
+        <p>Big, colorful shaved ice made with fresh fruit and homemade syrup. Flavor highlights include Diablito (real fruit, chamoy, Tajin, and tamarind), pineapple, and Sweet Flan with condensed milk, vanilla, and pecan, plus much more.</p>
       </article>
     </div>
   </section>
@@ -276,6 +285,46 @@
     </div>
   </section>
 </div>
+
+<div id="google_translate_element" style="display:none;"></div>
+
+<script>
+  function getCurrentLanguage() {
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    if (!match) return "en";
+    const decoded = decodeURIComponent(match[1]);
+    if (decoded.endsWith("/es")) return "es";
+    return "en";
+  }
+
+  function setLanguage(lang) {
+    const value = "/en/" + lang;
+    document.cookie = "googtrans=" + value + "; path=/";
+    document.cookie = "googtrans=" + value + "; path=/; domain=" + window.location.hostname;
+    localStorage.setItem("siteLanguage", lang);
+    window.location.reload();
+  }
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: "en", includedLanguages: "en,es", autoDisplay: false },
+      "google_translate_element"
+    );
+  }
+
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) {
+    const currentLang = getCurrentLanguage();
+    langToggle.textContent = currentLang === "es" ? "English" : "Español";
+    langToggle.addEventListener("click", () => {
+      const nextLang = getCurrentLanguage() === "es" ? "en" : "es";
+      setLanguage(nextLang);
+    });
+  }
+
+  document.body.classList.add("translate-reset");
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <footer>
   Miranda's Shaved Ice · Family-Owned & Family-Managed · Roeland Park, Kansas

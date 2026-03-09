@@ -617,6 +617,83 @@
   .contact-item a { color: var(--dark); text-decoration: none; }
   .contact-item a:hover { color: var(--red); }
 
+  .social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 50%;
+    color: var(--dark);
+    text-decoration: none;
+    background: white;
+    transition: all 0.2s;
+  }
+
+  .icon-link svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+  }
+
+  .icon-link:hover {
+    color: white;
+    background: var(--red);
+    border-color: var(--red);
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-social .icon-link {
+    width: 34px;
+    height: 34px;
+    color: rgba(253,246,232,0.8);
+    border-color: rgba(253,246,232,0.35);
+    background: transparent;
+  }
+
+  .nav-social .icon-link:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(232,160,32,0.1);
+  }
+
+  .footer-social {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .footer-social .icon-link {
+    color: var(--gold);
+    border-color: rgba(232,160,32,0.5);
+    background: transparent;
+  }
+
+  .footer-social .icon-link:hover {
+    color: var(--dark);
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
   /* ===== FOOTER ===== */
   footer {
     background: var(--dark);
@@ -700,6 +777,33 @@
 
   .nav-links a:hover { color: var(--gold); }
 
+  .lang-toggle {
+    border: 1px solid rgba(253,246,232,0.35);
+    background: transparent;
+    color: rgba(253,246,232,0.85);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .lang-toggle:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: rgba(232,160,32,0.12);
+  }
+
+  body.translate-reset { top: 0 !important; }
+  .skiptranslate iframe,
+  #goog-gt-tt,
+  .goog-te-banner-frame {
+    display: none !important;
+  }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     .about-grid, .info-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -707,6 +811,9 @@
     .stats-row { gap: 24px; }
     nav { padding: 16px 20px; }
     .nav-links { display: none; }
+    .nav-right { gap: 8px; }
+    .lang-toggle { padding: 7px 10px; font-size: 0.7rem; }
+    .nav-social .icon-link { width: 30px; height: 30px; }
     .menu-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -716,13 +823,24 @@
 <!-- NAV -->
 <nav id="nav">
   <a href="#" class="nav-logo"><img src="images/logo.png" alt="Miranda's Mexican Food Truck logo">Miranda's <span>Mexican</span></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#menu">Menu</a></li>
-    <li><a href="shaved-ice.html">Shaved Ice</a></li>
-    <li><a href="#reviews">Reviews</a></li>
-    <li><a href="#visit">Visit Us</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="shaved-ice.html">Shaved Ice</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#visit">Visit Us</a></li>
+    </ul>
+    <button type="button" id="lang-toggle" class="lang-toggle">Español</button>
+    <div class="nav-social">
+      <a href="https://www.instagram.com/mirandasmexicanfoodtruck_/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Instagram" title="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.5-2a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/p/Mirandas-Mexican-Food-Truck-100063788940132/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Facebook" title="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.7V4.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V11H8v3h2.1v8h3.4z"/></svg>
+      </a>
+    </div>
+  </div>
 </nav>
 
 <div class="otomi-border"></div>
@@ -741,7 +859,7 @@
   <div class="hero-badge">Kansas City, Missouri</div>
   <img src="images/logo.png" alt="Miranda's Mexican Food Truck logo" class="hero-logo">
   <h1>Miranda's<span>Mexican Food Truck</span></h1>
-  <p class="hero-tagline">Family owned and operated, serving bold Mexican flavor with warm hospitality. Stop by for fresh food, cozy outdoor seating, and easy pickup, delivery, or catering.</p>
+  <p class="hero-tagline">Family owned and operated, serving bold Mexican flavor with warm hospitality. Stop by for handmade food, a cozy patio, and easy pickup, delivery, or catering.</p>
   <div class="hero-stars">★★★★★</div>
   <p class="hero-rating">4.9 Stars · 350+ Reviews · Voted Best Restaurant in KC 2025</p>
   <p class="hero-tagline" style="margin-top:-20px;font-size:0.95rem;">
@@ -770,9 +888,10 @@
       <div class="about-text">
         <p class="section-label">Our Story</p>
         <h2 class="section-title">Family Owned and Operated, Always Fresh</h2>
-        <p>Miranda's Mexican Food Truck is a family owned and operated kitchen on wheels where authentic Mexican flavor meets genuine hospitality in the heart of Kansas City.</p>
+        <p>Miranda's Mexican Food Truck is a family owned and operated kitchen on wheels where authentic Mexican flavor, handmade food, and genuine hospitality come together in the heart of Kansas City.</p>
         <p><strong>Voted Best Restaurant in KC 2025</strong> — recognized on BusinessRate for outstanding local dining and customer experience.</p>
-        <p>Parked at 3029 Southwest Blvd, we deliver a warm, welcoming experience year-round with cozy outdoor seating and fresh food made to order every day. Stop by and taste the difference.</p>
+        <p>Located at 3029 Southwest Blvd, we deliver a warm, welcoming experience year-round with a cozy patio and fresh food made to order every day. Stop by and taste the difference.</p>
+        <p>Our menu is handcrafted daily with quality ingredients, including locally sourced produce whenever available.</p>
         <p>Hosting a celebration, office lunch, or community event? We offer catering, event service, and easy delivery on DoorDash and Uber Eats, so enjoying Miranda's is always convenient.</p>
 
         <div class="stats-row">
@@ -1157,6 +1276,17 @@
             <div class="contact-icon">🔥</div>
             <div>Warm Outdoor Seating Year-Round</div>
           </div>
+          <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <div class="social-links">
+              <a href="https://www.instagram.com/mirandasmexicanfoodtruck_/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Instagram" title="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.5-2a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+              </a>
+              <a href="https://www.facebook.com/p/Mirandas-Mexican-Food-Truck-100063788940132/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Facebook" title="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.7V4.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V11H8v3h2.1v8h3.4z"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1189,9 +1319,54 @@
   <div class="footer-sub">Mexican Food Truck · Kansas City</div>
   <p>3029 Southwest Blvd, Kansas City, MO 64108 &nbsp;·&nbsp; (816) 695-8356</p>
   <p style="margin-top:8px;">Open Mon–Thu 11AM–8PM &nbsp;·&nbsp; Fri–Sat 11AM–10PM &nbsp;·&nbsp; Closed Sunday</p>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/mirandasmexicanfoodtruck_/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Instagram" title="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.5-2a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg>
+    </a>
+    <a href="https://www.facebook.com/p/Mirandas-Mexican-Food-Truck-100063788940132/" target="_blank" rel="noopener noreferrer" class="icon-link" aria-label="Facebook" title="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6h1.7V4.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V11H8v3h2.1v8h3.4z"/></svg>
+    </a>
+  </div>
 </footer>
 
+<div id="google_translate_element" style="display:none;"></div>
+
 <script>
+  function getCurrentLanguage() {
+    const match = document.cookie.match(/(?:^|;\s*)googtrans=([^;]+)/);
+    if (!match) return "en";
+    const decoded = decodeURIComponent(match[1]);
+    if (decoded.endsWith("/es")) return "es";
+    return "en";
+  }
+
+  function setLanguage(lang) {
+    const value = "/en/" + lang;
+    document.cookie = "googtrans=" + value + "; path=/";
+    document.cookie = "googtrans=" + value + "; path=/; domain=" + window.location.hostname;
+    localStorage.setItem("siteLanguage", lang);
+    window.location.reload();
+  }
+
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: "en", includedLanguages: "en,es", autoDisplay: false },
+      "google_translate_element"
+    );
+  }
+
+  const langToggle = document.getElementById("lang-toggle");
+  if (langToggle) {
+    const currentLang = getCurrentLanguage();
+    langToggle.textContent = currentLang === "es" ? "English" : "Español";
+    langToggle.addEventListener("click", () => {
+      const nextLang = getCurrentLanguage() === "es" ? "en" : "es";
+      setLanguage(nextLang);
+    });
+  }
+
+  document.body.classList.add("translate-reset");
+
   // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -1222,5 +1397,6 @@
     });
   });
 </script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
