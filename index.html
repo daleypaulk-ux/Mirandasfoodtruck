@@ -481,6 +481,9 @@
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .drink-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+  .drink-photo-wrap {
+    position: relative;
+  }
   .drink-photo {
     width: 100%;
     height: 200px;
@@ -488,6 +491,18 @@
     border-radius: 8px;
     margin-bottom: 14px;
     border: 1px solid rgba(0,0,0,0.08);
+  }
+  .drink-sponsor-logo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 76px;
+    height: auto;
+    background: rgba(255,255,255,0.94);
+    border-radius: 8px;
+    padding: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.16);
   }
   .drink-name {
     font-family: 'Playfair Display', serif;
@@ -888,7 +903,7 @@
       <div class="about-text">
         <p class="section-label">Our Story</p>
         <h2 class="section-title">Family Owned and Operated, Always Fresh</h2>
-        <p>Miranda's Mexican Food Truck is a family owned and operated kitchen on wheels where authentic Mexican flavor, handmade food, and genuine hospitality come together in the heart of Kansas City.</p>
+        <p>Miranda's Mexican Food Truck is a family owned and operated kitchen on wheels where the Mexican flavor is handmade food and genuine hospitality. Come join us in the heart of Kansas City.</p>
         <p><strong>Voted Best Restaurant in KC 2025</strong> — recognized on BusinessRate for outstanding local dining and customer experience.</p>
         <p>Located at 3029 Southwest Blvd, we deliver a warm, welcoming experience year-round with a cozy patio and fresh food made to order every day. Stop by and taste the difference.</p>
         <p>Our menu is handcrafted daily with quality ingredients, including locally sourced produce whenever available.</p>
@@ -1130,7 +1145,10 @@
     <h2 class="section-title">Drink Like You're in Mexico</h2>
     <div class="drinks-grid">
       <div class="drink-card">
-        <img src="images/mexican-bottled-drinks.png" alt="Mexican bottled drinks" class="drink-photo">
+        <div class="drink-photo-wrap">
+          <img src="images/mexican-bottled-drinks.png" alt="Mexican bottled drinks" class="drink-photo">
+          <img src="images/jarritos-logo.png" alt="Jarritos logo" class="drink-sponsor-logo">
+        </div>
         <div class="drink-name">Mexican Bottled Drinks</div>
         <p class="drink-price">$3.50</p>
         <p class="drink-desc">Jarritos, Mexican Coke, Sangria Senorial and more imported favorites.</p>
